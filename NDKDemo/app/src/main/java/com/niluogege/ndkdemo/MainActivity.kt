@@ -2,7 +2,6 @@ package com.niluogege.ndkdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import com.niluogege.ndkdemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,19 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Example of a call to a native method
-        binding.sampleText.text = stringFromJNI()
+        binding.sampleText.text = Signature.doSignature("sdfsdfsd")
     }
 
-    /**
-     * A native method that is implemented by the 'ndkdemo' native library,
-     * which is packaged with this application.
-     */
-    external fun stringFromJNI(): String
 
-    companion object {
-        // Used to load the 'ndkdemo' library on application startup.
-        init {
-            System.loadLibrary("ndkdemo")
-        }
-    }
 }
