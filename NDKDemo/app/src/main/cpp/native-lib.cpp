@@ -24,7 +24,7 @@ Java_com_niluogege_ndkdemo_Signature_doSignature(JNIEnv *env, jobject thiz, jstr
     signature_str.insert(0, EXTRA_SIGNATURE);
 
     //去掉后面两位
-    signature_str.substr(0,signature_str.length()-2);
+    signature_str=signature_str.substr(0,signature_str.length()-2);
 
     //将 signature_str 转为char* 类型并log输出
     const char* addExtraSignature =signature_str.c_str();
@@ -43,10 +43,11 @@ Java_com_niluogege_ndkdemo_Signature_doSignature(JNIEnv *env, jobject thiz, jstr
     MD5Final(digest,context);
 
     //定义用于存储结果的 string
-    char md5_str[32] = {0};
+    //注意：这里如果给md5_str 设置32位的空间的话可能会报错，所以这里这里开辟稍微大一点
+    char md5_str[64] = {0};
     for (int i = 0; i < 16; i++){
         // 不足的情况下补0 f = 0f, ab = ab
-        sprintf(md5_str,"%s%02x",digest[i]);
+        sprintf(md5_str, "%s%02x", md5_str, digest[i]);
     }
 
     //释放字符串内存
@@ -54,9 +55,5 @@ Java_com_niluogege_ndkdemo_Signature_doSignature(JNIEnv *env, jobject thiz, jstr
 
     __android_log_print(ANDROID_LOG_ERROR, "JNI_TAG", "md5结果=%s", md5_str);
     return env->NewStringUTF(md5_str);
-
-
-
-
 
 }
