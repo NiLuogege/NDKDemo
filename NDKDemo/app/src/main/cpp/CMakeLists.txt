@@ -9,19 +9,26 @@ cmake_minimum_required(VERSION 3.18.1)
 
 project("ndkdemo")
 
+
+# 指定包含的头文件路径 inc 路径下
+include_directories( inc )
+
+# 搜索自动目录下的所有源代码文件 src 路径下，并存储在 SRC_LIST 变量中
+aux_source_directory( src SRC_LIST )
+
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
-add_library( # Sets the name of the library.
+# 指定生成的库的名称、类型、源码
+add_library( # 设置生成库的名称
         ndkdemo
-
-        # Sets the library as a shared library.
+        # 设置生成库的类型（SHARED 动态库，STATIC 静态库）
         SHARED
+        # 指定源码的路径
+        ${SRC_LIST} )
 
-        # Provides a relative path to your source file(s).
-        native-lib.cpp md5.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
