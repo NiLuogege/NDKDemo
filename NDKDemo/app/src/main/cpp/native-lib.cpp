@@ -20,7 +20,7 @@ static int is_verify = 0;
 //签名操作
 extern "C"
 JNIEXPORT jstring
-Java_com_niluogege_ndkdemo_Signature_doSignature(JNIEnv *env, jobject thiz, jstring str) {
+Java_com_niluogege_ndkdemo_signature_Signature_doSignature(JNIEnv *env, jobject thiz, jstring str) {
 
     if (is_verify == 0) {
         return env->NewStringUTF("error_signature");
@@ -81,7 +81,7 @@ return signatures[0].toCharsString();
 */
 extern "C"
 JNIEXPORT jboolean JNICALL
-Java_com_niluogege_ndkdemo_Signature_oauthVerify(JNIEnv *env, jobject thiz, jobject context) {
+Java_com_niluogege_ndkdemo_signature_Signature_oauthVerify(JNIEnv *env, jobject thiz, jobject context) {
 
     //获取context的 jclass 对象
     jclass j_class = env->GetObjectClass(context);

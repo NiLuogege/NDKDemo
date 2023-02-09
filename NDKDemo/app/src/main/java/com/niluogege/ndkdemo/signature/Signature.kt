@@ -1,4 +1,4 @@
-package com.niluogege.ndkdemo
+package com.niluogege.ndkdemo.signature
 
 import android.content.Context
 
