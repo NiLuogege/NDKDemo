@@ -18,13 +18,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //授权校验，一个应该在app启动的时候就校验，这里就先放到Activity中
+        Signature.oauthVerify(this)
+
         val packageInfo: PackageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
         val s =packageInfo.signatures[0].toCharsString()
-
         Log.e("签名为",s)
 
+
         // Example of a call to a native method
-        binding.sampleText1.text = "权限校验结果：${Signature.oauthVerify(this)}"
         binding.sampleText.text = Signature.doSignature("sdfsdfsd111")
         binding.sampleText2.text = "签名为：$s"
 
