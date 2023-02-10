@@ -20,9 +20,10 @@ class GifManager private constructor() {
 
 
     fun load(stream: InputStream): Long {
-        return nativeLoad(stream)
+        val buffer = ByteArray(16 * 1024)
+        return nativeLoad(stream,buffer)
     }
 
-    external fun nativeLoad(stream: InputStream): Long
+    external fun nativeLoad(stream: InputStream,buffer:ByteArray): Long
 
 }
