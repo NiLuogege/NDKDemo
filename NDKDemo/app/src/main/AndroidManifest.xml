@@ -24,6 +24,7 @@
         </activity>
 
         <activity android:name=".signature.SignatureTestActivity"/>
+        <activity android:name=".giflib.GiflibActivity"/>
     </application>
 
 </manifest>

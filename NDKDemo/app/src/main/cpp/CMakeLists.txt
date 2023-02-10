@@ -10,8 +10,8 @@ cmake_minimum_required(VERSION 3.18.1)
 project("ndkdemo")
 
 
-# 指定包含的头文件路径 inc 路径下
-include_directories( inc )
+# 指定源码文件夹， inc 是放头文件的， giflib是完整的giflib库
+include_directories( inc giflib)
 
 # 搜索自动目录下的所有源代码文件 src 路径下，并存储在 SRC_LIST 变量中
 aux_source_directory( src SRC_LIST )

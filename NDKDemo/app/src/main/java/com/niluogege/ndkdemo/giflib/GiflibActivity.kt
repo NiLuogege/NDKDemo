@@ -1,4 +1,4 @@
-package com.niluogege.ndkdemo
+package com.niluogege.ndkdemo.giflib
 
 import android.content.Intent
 import android.content.pm.PackageInfo
@@ -7,29 +7,26 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.niluogege.ndkdemo.R
+import com.niluogege.ndkdemo.databinding.ActivityGiflibBinding
 import com.niluogege.ndkdemo.databinding.ActivityMainBinding
-import com.niluogege.ndkdemo.giflib.GiflibActivity
 import com.niluogege.ndkdemo.signature.Signature
 import com.niluogege.ndkdemo.signature.SignatureTestActivity
 
+//参考 ：https://blog.csdn.net/lognic10/article/details/109771807
+class GiflibActivity : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityGiflibBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityGiflibBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
         findViewById<View>(R.id.btn1).setOnClickListener {
             startActivity(Intent(this,SignatureTestActivity::class.java))
-        }
-
-        findViewById<View>(R.id.btn2).setOnClickListener {
-            startActivity(Intent(this, GiflibActivity::class.java))
         }
 
 
