@@ -13,7 +13,12 @@ import com.niluogege.ndkdemo.databinding.ActivityMainBinding
 import com.niluogege.ndkdemo.signature.Signature
 import com.niluogege.ndkdemo.signature.SignatureTestActivity
 
-//参考 ：https://blog.csdn.net/lognic10/article/details/109771807
+/**
+ * 参考 ：
+ * - https://blog.csdn.net/lognic10/article/details/109771807
+ * - https://github.com/spiritedRunning/GiflibDemo
+ */
+
 class GiflibActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGiflibBinding
@@ -25,8 +30,19 @@ class GiflibActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        findViewById<View>(R.id.btn1).setOnClickListener {
-            startActivity(Intent(this,SignatureTestActivity::class.java))
+
+        val gif1 = resources.assets.open("1.gif")
+        binding.iv.load(gif1)
+
+        findViewById<View>(R.id.btn_start).setOnClickListener {
+
+
+        }
+
+
+        findViewById<View>(R.id.btn_stop).setOnClickListener {
+
+
         }
 
 
