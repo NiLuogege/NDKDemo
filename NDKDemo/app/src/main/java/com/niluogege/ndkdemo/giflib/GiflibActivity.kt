@@ -31,8 +31,7 @@ class GiflibActivity : AppCompatActivity() {
 
 
 
-        val gif1 = resources.assets.open("1.gif")
-        binding.iv.load(gif1)
+        binding.iv.loadAsset("1.gif")
 
         findViewById<View>(R.id.btn_start).setOnClickListener {
 

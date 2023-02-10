@@ -1,5 +1,6 @@
 package com.niluogege.ndkdemo.giflib
 
+import android.content.Context
 import java.io.InputStream
 
 class GifManager private constructor() {
@@ -19,11 +20,10 @@ class GifManager private constructor() {
     }
 
 
-    fun load(stream: InputStream): Long {
-        val buffer = ByteArray(16 * 1024)
-        return nativeLoad(stream,buffer)
+    fun loadAsset(context: Context, filePath: String): Long {
+        return nativeLoadAsset(context, filePath)
     }
 
-    external fun nativeLoad(stream: InputStream,buffer:ByteArray): Long
+    external fun nativeLoadAsset(context: Context, filePath: String): Long
 
 }

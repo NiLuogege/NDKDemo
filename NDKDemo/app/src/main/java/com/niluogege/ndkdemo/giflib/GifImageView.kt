@@ -12,12 +12,10 @@ class GifImageView @JvmOverloads constructor(
     //gif 文件内存中对象（GifFileType）指针
     var gifFilePointer:Long?=null
 
-    fun load(stream: InputStream) {
-
-        println("InputStream=$stream")
+    fun loadAsset(filePath: String) {
 
         //这里会初始化 gif 的信息
-        gifFilePointer = GifManager.getInstance().load(stream)
+        gifFilePointer = GifManager.getInstance().loadAsset(context,filePath)
     }
 
 
