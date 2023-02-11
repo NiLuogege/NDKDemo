@@ -38,5 +38,9 @@ class GifImageView @JvmOverloads constructor(
         setImageBitmap(bitmap)
     }
 
+    fun play() {
+        GifManager.getInstance().paly(gifFilePointer,bitmap)
+    }
+
 
 }

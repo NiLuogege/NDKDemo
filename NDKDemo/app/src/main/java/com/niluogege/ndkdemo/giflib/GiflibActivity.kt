@@ -34,7 +34,8 @@ class GiflibActivity : AppCompatActivity() {
         binding.iv.loadAsset("1.gif")
 
         findViewById<View>(R.id.btn_start).setOnClickListener {
-
+            //这个方法没搞完，不好搞呀，后面有时间再搞吧，现在主要是 面试
+            binding.iv.play()
 
         }
 

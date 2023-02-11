@@ -2,6 +2,7 @@ package com.niluogege.ndkdemo.giflib
 
 import android.content.Context
 import android.content.res.AssetManager
+import android.graphics.Bitmap
 
 class GifManager private constructor() {
 
@@ -20,12 +21,13 @@ class GifManager private constructor() {
     }
 
 
-        fun loadAsset(context: Context, filePath: String): Long {
-            return nativeLoadAsset(context.assets, filePath)
-        }
+    fun loadAsset(context: Context, filePath: String): Long {
+        return nativeLoadAsset(context.assets, filePath)
+    }
 
-        external fun nativeLoadAsset(context: AssetManager, filePath: String): Long
-        external fun getWidth(gifFilePointer: Long?): Int
-        external fun getHeight(gifFilePointer: Long?): Int
+    external fun nativeLoadAsset(context: AssetManager, filePath: String): Long
+    external fun getWidth(gifFilePointer: Long?): Int
+    external fun getHeight(gifFilePointer: Long?): Int
+    external fun paly(gifFilePointer: Long?, bitmap: Bitmap?): Int
 
 }
