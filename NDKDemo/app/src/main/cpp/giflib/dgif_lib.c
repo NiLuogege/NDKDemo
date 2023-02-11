@@ -1075,6 +1075,9 @@ DGifBufferedInput(GifFileType *GifFile, GifByteType *Buf, GifByteType *NextByte)
  This routine reads an entire GIF into core, hanging all its state info off
  the GifFileType pointer.  Call DGifOpenFileName() or DGifOpenFileHandle()
  first to initialize I/O.  Its inverse is EGifSpew().
+
+ //这种方式一开始就会将整个 gif文件内容都读到内存中，相对于其他方法的 逐帧解析，，第一次读取的速度会慢，当gif大的时候，不易实现秒开的效果 ，
+//是对 DGifOpenFileName() or DGifOpenFileHandle() 的封装
 *******************************************************************************/
 int
 DGifSlurp(GifFileType *GifFile)

@@ -1,7 +1,7 @@
 package com.niluogege.ndkdemo.giflib
 
 import android.content.Context
-import java.io.InputStream
+import android.content.res.AssetManager
 
 class GifManager private constructor() {
 
@@ -21,9 +21,9 @@ class GifManager private constructor() {
 
 
     fun loadAsset(context: Context, filePath: String): Long {
-        return nativeLoadAsset(context, filePath)
+        return nativeLoadAsset(context.assets, filePath)
     }
 
-    external fun nativeLoadAsset(context: Context, filePath: String): Long
+    external fun nativeLoadAsset(context: AssetManager, filePath: String): Long
 
 }

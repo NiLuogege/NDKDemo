@@ -11,10 +11,13 @@ project("ndkdemo")
 
 
 # 指定源码文件夹， inc 是放头文件的， giflib是完整的giflib库
-include_directories( inc giflib)
+include_directories(inc)
+
+# 引入所有gif 源文件
+file(GLOB_RECURSE GIF_DIRECTORIES giflib/*.*)
 
 # 搜索自动目录下的所有源代码文件 src 路径下，并存储在 SRC_LIST 变量中
-aux_source_directory( src SRC_LIST )
+aux_source_directory(src SRC_LIST)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -26,8 +29,10 @@ add_library( # 设置生成库的名称
         ndkdemo
         # 设置生成库的类型（SHARED 动态库，STATIC 静态库）
         SHARED
+        # gif 源文件
+        ${GIF_DIRECTORIES}
         # 指定源码的路径
-        ${SRC_LIST} )
+        ${SRC_LIST})
 
 
 # Searches for a specified prebuilt library and stores the path as a
@@ -52,4 +57,9 @@ target_link_libraries( # Specifies the target library.
 
         # Links the target library to the log library
         # included in the NDK.
-        ${log-lib})
+        ${log-lib}
+
+        # 引入下面这俩才能使用assert_manager.h 和 asset_manager_jni.h相关功能
+        jnigraphics
+        android
+        )
