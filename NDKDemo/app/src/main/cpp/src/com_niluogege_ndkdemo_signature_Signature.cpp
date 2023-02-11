@@ -2,7 +2,6 @@
 #include <string>
 #include "../inc/md5.h"
 #include <android/log.h>
-#include "../inc/LogUtil.h"
 
 //使用std标准库
 //C++标准库中的函数或者对象都是在命名空间std中定义的，所以我们要使用标准函数库中的函数或对象都要使用std来限定
