@@ -20,10 +20,12 @@ class GifManager private constructor() {
     }
 
 
-    fun loadAsset(context: Context, filePath: String): Long {
-        return nativeLoadAsset(context.assets, filePath)
-    }
+        fun loadAsset(context: Context, filePath: String): Long {
+            return nativeLoadAsset(context.assets, filePath)
+        }
 
-    external fun nativeLoadAsset(context: AssetManager, filePath: String): Long
+        external fun nativeLoadAsset(context: AssetManager, filePath: String): Long
+        external fun getWidth(gifFilePointer: Long?): Int
+        external fun getHeight(gifFilePointer: Long?): Int
 
 }

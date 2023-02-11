@@ -37,5 +37,30 @@ Java_com_niluogege_ndkdemo_giflib_GifManager_nativeLoadAsset(JNIEnv *env, jobjec
         return NULL;
     }
 
-    return 1;
+//    GifWord gif_width = gifFile->SWidth;
+//    GifWord gif_height = gifFile->SHeight;
+    LOGI("gif SWidth: %d SHeight: %d", gifFile->SWidth, gifFile->SHeight);
+
+    return reinterpret_cast<jlong>(gifFile);
+}
+
+//获取到 gif 的宽度
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_niluogege_ndkdemo_giflib_GifManager_getWidth(JNIEnv *env, jobject thiz,
+                                                      jobject gif_file_pointer) {
+    //直接强转返回 宽度
+//    return ((GifFileType *) gif_file_pointer)->SWidth;
+    return 518;
+}
+
+//获取到 gif 的高度
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_niluogege_ndkdemo_giflib_GifManager_getHeight(JNIEnv *env, jobject thiz,
+                                                       jobject gif_file_pointer) {
+    //直接强转返回 高度
+//    return ((GifFileType *) gif_file_pointer)->SHeight;
+
+    return 413;
 }
